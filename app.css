@@ -1,0 +1,15 @@
+.center {
+	width: 80%;
+	margin-left:auto;
+	margin-right:auto;
+}
+.box {
+	background: #fff;
+	border: solid 1px #ff7;
+	border-radius: 20px;
+	padding:15px;
+	margin-top: 75px;
+}
+body{
+	background:#dff
+}

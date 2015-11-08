@@ -1,0 +1,14 @@
+{
+  "name": "practice",
+  "version": "0.0.0",
+  "authors": [
+    "Carlos Guillen <caguillen214@gmail.com>"
+  ],
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.5",
+    "angular-route": "~1.4.5",
+    "bootstrap": "~3.3.5"
+  }
+}

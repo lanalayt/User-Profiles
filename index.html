@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="alPractice">
+  <head>
+    <meta charset="utf-8">
+    <title>ALANA</title> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="icon" type="assets/images/tupleFav.png">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="app.css">
+    
+    <!--      Bower Components         -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    
+    <!--      Internal Components         -->
+    
+    <script src="components/main/main.js"></script>
+    <script src="components/main/main-controller.js"></script>
+    <script src="components/profile/profile.js"></script>
+    <script src="components/profile/profile-controller.js"></script>
+    <script src="components/messages/message-service.js"></script>
+    <script src="components/user/user-service.js"></script>
+
+
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div ng-view>
+
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,72 @@
+<div class="row">
+	<div class="col-md-8 col-md-offset-2 box">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 style="margin-top:5px">{{currUser.name}}</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<img src="{{currUser.url}}" height="200px" width="200px">
+			</div>
+			<div class="col-md-3">
+				<h2>Hobbies:</h2>
+				<ul>
+					<li ng-repeat="hobby in currUser.hobbies">
+						<span ><a href="https://www.google.com/search?q={{hobby}}">{{hobby}}</a></span>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<h2>Friends: </h2>
+				<button ng-click="addNewFriendClicked = true">Add New Friends!</button>
+				<div ng-show="addNewFriendClicked">
+					<input class="form-control" type="text" placeholder="Search for Friends" ng-model="searchText"/>
+					
+					<table>
+						<tr ng-repeat="userKey in getListOfUsers() | filter:searchText">
+							<td><span>{{users[userKey].name}}</span></td>
+							<td><button class="btn btn-xs btn-success" ng-click="addToFriendsList(users[userKey].key)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></td>
+						</tr>
+					</table>
+				</div>
+				<ul>
+					<li ng-repeat="friend in currUser.friends">
+						<span ><a href="/#/profile/{{friend}}">{{friend}}</a></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Messages:</h2>
+						<ul>
+							<li ng-repeat="message in getMessages()" >
+								<span >Message sender: {{message.sender}} - Message: {{message.message}}</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<select ng-model="dropDownName" style="width:100%">
+							<option ng-repeat= "friend in currUser.friends" value ="{{friend}}">
+								{{friend}}
+							</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input class="form-control" type = "text" ng-model="message">
+					</div>
+					<div class="col-md-2">
+						<button class="btn btn-small btn-primary pull-right" ng-click="sendMessage(message, dropDownName); message = ''" >Send Message!</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+

@@ -1,0 +1,38 @@
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div ng-if="current != null">
+					<h3>Hi, {{current.name}}. You are from {{current.homeTown}}</h3>
+					<a href="/#/profile/{{current.key}}">Go to {{current.name}}'s Profile</a>
+				</div>	
+			</div>
+		</div>
+		<div class="row">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 box">
+					<input  class="form-control" type="text" placeholder="Search the List" ng-model="searchText"/>
+					<table class="table table-striped" style="margin-top:15px">
+						<tr ng-repeat="person in getContacts() | filter:searchText" ng-click="setCurrent(person)">
+						  <td><img src="{{person.url}}" width="50px" height="50px"></td>
+						  <td style="text-align:center;vertical-align:middle"><h4>{{person.name}}</h4></td>
+						  <td style="text-align:center;vertical-align:middle"><h4>{{person.homeTown}}</h4></td>
+						  <td ><button class="btn btn-small btn-danger" ng-click="delete(person)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
+						</tr>
+					</table>
+					<button class="pull-right btn btn-small btn-primary" ng-click="newUserClicked = true"/>Add New User!</button>	
+				</div>
+			</div>
+		</div>
+		
+		<div ng-show="newUserClicked">
+			<input type="text" placeholder= "Enter Full Name" ng-model = "newUserInfo['name']"/>
+			<br>
+			<input type="text" placeholder="Enter Home Town" ng-model = "newUserInfo['homeTown']"/>
+			<br>
+			<input type="text" placeholder="Enter Hobbies" ng-model="newUserInfo['hobbies']"/>
+			<br>
+			<input type="text" placeholder="Enter picture URL" ng-model="newUserInfo['url']"/>
+			<br>
+			<button ng-click="submitInfo(newUserInfo)">Submit User Info</button>
+		</div>
+</div>
